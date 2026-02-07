@@ -149,6 +149,10 @@ Contributions welcome! This is an open-source framework built for QA teams.
 
 MIT
 
+## Author
+
+**Ashwin Kulkarni** - Creator and Maintainer
+
 ## Support
 
 For issues, questions, or feature requests, please visit our GitHub repository.

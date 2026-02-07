@@ -19,7 +19,7 @@
     "test-generation",
     "auto-healing"
   ],
-  "author": "QA Leader",
+  "author": "Ashwin Kulkarni",
   "license": "MIT",
   "dependencies": {
     "openai": "^4.48.0"
