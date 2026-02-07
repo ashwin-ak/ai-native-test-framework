@@ -76,14 +76,34 @@ export class AITestGenerator {
     ];
 
     // Customize based on framework
-    if (framework === 'cypress') {
-      return baseSteps.map(step => ({
-        ...step,
-        action: `cy.${step.action}`,
-      }));
+    switch (framework) {
+      case 'cypress':
+        return baseSteps.map(step => ({
+          ...step,
+          action: `cy.${step.action}`,
+        }));
+      
+      case 'puppeteer':
+        return baseSteps.map(step => ({
+          ...step,
+          action: `await page.${step.action === 'verify' ? 'evaluate' : step.action}`,
+        }));
+      
+      case 'playwright':
+        return baseSteps.map(step => ({
+          ...step,
+          action: `await page.${step.action === 'verify' ? 'evaluate' : step.action}`,
+        }));
+      
+      case 'selenium':
+        return baseSteps.map(step => ({
+          ...step,
+          action: `driver.${step.action === 'verify' ? 'find_element' : step.action}`,
+        }));
+      
+      default:
+        return baseSteps;
     }
-
-    return baseSteps;
   }
 
   /**
