@@ -1,20 +1,20 @@
 /**
  * Environment and configuration management
  */
+export interface EnvironmentConfig {
+  name: string;
+  baseUrl: string;
+  apiEndpoint: string;
+  timeout: number;
+  retries: number;
+  parallel: boolean;
+  headless: boolean;
+  env: Record<string, string>;
+}
+
 export class ConfigurationManager {
   private configs: Map<string, EnvironmentConfig> = new Map();
   private currentEnvironment: string = 'development';
-
-  interface EnvironmentConfig {
-    name: string;
-    baseUrl: string;
-    apiEndpoint: string;
-    timeout: number;
-    retries: number;
-    parallel: boolean;
-    headless: boolean;
-    env: Record<string, string>;
-  }
 
   constructor() {
     // Setup default environments

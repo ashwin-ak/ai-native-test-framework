@@ -1,17 +1,17 @@
 /**
  * Test scheduling and execution planning
  */
+export interface ScheduledTest {
+  id: string;
+  testNames: string[];
+  schedule: string; // cron expression or frequency
+  enabled: boolean;
+  lastRun?: Date;
+  nextRun?: Date;
+}
+
 export class TestScheduler {
   private schedules: Map<string, ScheduledTest> = new Map();
-
-  interface ScheduledTest {
-    id: string;
-    testNames: string[];
-    schedule: string; // cron expression or frequency
-    enabled: boolean;
-    lastRun?: Date;
-    nextRun?: Date;
-  }
 
   /**
    * Schedule a test or suite to run at specific times

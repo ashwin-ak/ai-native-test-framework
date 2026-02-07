@@ -3,17 +3,17 @@ import { TestResult } from './types';
 /**
  * Performance monitoring and metrics collection
  */
+export interface PerformanceMetric {
+  testName: string;
+  durations: number[];
+  averageDuration: number;
+  minDuration: number;
+  maxDuration: number;
+  standardDeviation: number;
+}
+
 export class PerformanceMonitor {
   private metrics: Map<string, PerformanceMetric> = new Map();
-
-  interface PerformanceMetric {
-    testName: string;
-    durations: number[];
-    averageDuration: number;
-    minDuration: number;
-    maxDuration: number;
-    standardDeviation: number;
-  }
 
   /**
    * Record test execution time

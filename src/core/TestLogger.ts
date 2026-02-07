@@ -1,18 +1,18 @@
 /**
  * Comprehensive test logging system
  */
+export interface LogEntry {
+  timestamp: Date;
+  level: 'debug' | 'info' | 'warn' | 'error';
+  testName?: string;
+  message: string;
+  metadata?: Record<string, any>;
+}
+
 export class TestLogger {
   private logs: LogEntry[] = [];
   private logLevel: 'debug' | 'info' | 'warn' | 'error' = 'info';
   private filepath?: string;
-
-  interface LogEntry {
-    timestamp: Date;
-    level: 'debug' | 'info' | 'warn' | 'error';
-    testName?: string;
-    message: string;
-    metadata?: Record<string, any>;
-  }
 
   constructor(logLevel: 'debug' | 'info' | 'warn' | 'error' = 'info', filepath?: string) {
     this.logLevel = logLevel;
